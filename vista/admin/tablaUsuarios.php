@@ -48,7 +48,7 @@
               <th>Dirección</th>
               <th>Profesión</th>
               <th>Especialidad</th>
-              <th>Tipo</th>
+              <th>Tipo Usuario</th>
               <th>Acción</th>
             </tr>
           </thead>

@@ -5,16 +5,17 @@
 
 class Patologia
 {
-
+public $con;  // ← Declaración adecuada
   function __construct()
 	{
+
 		require_once("conexion.php");
 
 			//llamando al metodo Conectaras de la clase Conexion para realizar los metodos de insert update delete
 			$co=new Conexion();
 			$this->con= $co->Conectaras();
 	}
-  public function SeleccionarPatoligias($buscar='',$inicioList=false,$listarDeCuanto=false,){
+  public function SeleccionarPatoligias($buscar='',$inicioList=false,$listarDeCuanto=false){
     $sql = "select *from patologias";
     if($buscar != ''){
       $sql.=" where (lower(nombre) like '%$buscar%' or lower(descripcion) like '%$buscar%')";

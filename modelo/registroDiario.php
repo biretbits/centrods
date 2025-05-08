@@ -5,7 +5,7 @@
 
 class RegistroDiario
 {
-
+  public $con;
   function __construct()
 	{
 		require_once("conexion.php");
@@ -20,7 +20,7 @@ class RegistroDiario
     $resul = $this->con->query($lis);
     return $resul;
   }
-  public function SelectPorBusquedaRegistroDiario($buscar,$inicioList,$listarDeCuanto,$fecha,$fechai=false,$fechaf=false){
+  public function SelectPorBusquedaRegistroDiario($buscar='',$inicioList=false,$listarDeCuanto=false,$fecha=false,$fechai=false,$fechaf=false){
     // Verificar si $buscar tiene contenido
     $sql = "SELECT * FROM usuario as u inner join registro_diario as rd on u.cod_usuario = rd.paciente_rd where u.tipo_usuario = 'paciente' and rd.estado = 'activo'";
     if ($buscar != "" && $buscar != null) {
@@ -218,7 +218,7 @@ public function seleccionarServicios(){
     return $resul;
   }
 
-  public function seleccionarRegistrosDiarioPorEdad($edadi=false,$edadf=false,$fechai,$fechaf){
+  public function seleccionarRegistrosDiarioPorEdad($edadi=false,$edadf=false,$fechai=false,$fechaf=false){
     $sql = '';
     $sql = "select *from usuario as u inner join registro_diario as r where r.paciente_rd=u.cod_usuario ";
   //  echo $edadi."    ".$edadf;

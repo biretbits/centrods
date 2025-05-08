@@ -5,9 +5,10 @@
 
 class Chat
 {
-
+  public $con;
   function __construct()
 	{
+    // ← Declaración adecuada
 		require_once("conexion.php");
 
 			//llamando al metodo Conectaras de la clase Conexion para realizar los metodos de insert update delete

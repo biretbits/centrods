@@ -71,7 +71,7 @@ class UsuarioControlador{
               <th>Dirección</th>
               <th>Profesión</th>
               <th>Especialidad</th>
-              <th>Tipo</th>
+              <th>Tipo Usuario</th>
               <th>Acción</th>
             </tr>
           </thead>
@@ -326,16 +326,14 @@ class UsuarioControlador{
 
           $result = $u->seleccionarTablas($table);
           $numFields = $result->field_count;
-
           while ($row = $result->fetch_row()) {
               $return = "INSERT INTO `$table` VALUES(";
               for ($i = 0; $i < $numFields; $i++) {
-                  $row[$i] = addslashes($row[$i]);
-                  if (isset($row[$i])) {
-                      $return .= '"' . $row[$i] . '"';
-                  } else {
-                      $return .= '""';
-                  }
+                  $value = isset($row[$i]) ? $row[$i] : '';  // Si es null, usa cadena vacía
+                  $value = addslashes((string)$value);       // Convierte a string siempre
+
+                  $return .= '"' . $value . '"';
+
                   if ($i < ($numFields - 1)) {
                       $return .= ',';
                   }
@@ -343,6 +341,7 @@ class UsuarioControlador{
               $return .= ");\n";
               fwrite($handle, $return);
           }
+
 
           fwrite($handle, "/*!40000 ALTER TABLE `$table` ENABLE KEYS */;\n");
           fwrite($handle, "UNLOCK TABLES;\n\n");

@@ -6,9 +6,10 @@
 
 class Historial
 {
-
+public $con;
   function __construct()
 	{
+     // ← Declaración adecuada
 		require_once("conexion.php");
 
 			//llamando al metodo Conectaras de la clase Conexion para realizar los metodos de insert update delete
@@ -81,7 +82,7 @@ class Historial
     return $resul;
     mysqli_close($this->con);
   }
-  public function SelectHistorialSOloimagenpRINCIPAL($cod_paciente='',$cod_rd=false,$cod_his){
+  public function SelectHistorialSOloimagenpRINCIPAL($cod_paciente='',$cod_rd=false,$cod_his=false){
     // Verificar si $buscar tiene contenido
     $sql = " select *from historial_dato where  ";
     if(is_numeric($cod_paciente)){
@@ -97,7 +98,7 @@ class Historial
     return $resul;
     mysqli_close($this->con);
   }
-  public function SelectHistorialDatoTodo($cod_paciente='',$hoja1=false,$hoja2=false,$cod_his=false,$cod_his_original){
+  public function SelectHistorialDatoTodo($cod_paciente='',$hoja1=false,$hoja2=false,$cod_his=false,$cod_his_original=false){
     // Verificar si $buscar tiene contenido
     $sql = " select *from historial_dato where  ";
     if(is_numeric($cod_paciente)){

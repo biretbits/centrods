@@ -5,7 +5,7 @@
 
 class Servicio
 {
-
+  public $con;
   function __construct()
 	{
 		require_once("conexion.php");
