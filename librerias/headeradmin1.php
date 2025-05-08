@@ -284,7 +284,7 @@ input[type=number] {
                     <li class='nav-item' title='Servicios'>
                         <a class='nav-link btn btn-outline-warning' href='../controlador/servicio.controlador.php?accion=rsr'><img src='../imagenes/servicio.ico'style='height: 25px;width: 25px;'></a>
                     </li>";
-                  echo "
+                  /*echo "
                     <li class='nav-item' title='Patologías'>
                         <a class='nav-link btn btn-outline-warning' href='../controlador/patologias.controlador.php?accion=vtp'><img src='../imagenes/patologia.png'style='height: 25px;width: 25px;'></a>
                     </li>";
