@@ -12,100 +12,6 @@ header('Content-Disposition: inline; filename="reporte.pdf"');
 
   include("../librerias/globales.php");
  //echo $fechai."fi   ".$fechaf."ff   ".$buscar."b   ".$pagina."p   ".$listarDeCuanto."ldc" ; ?>
-<style media="screen">
-table {
-    border-collapse: collapse;
-    width: 100%;
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    text-align: left;
-  }
-
-  table th {
-    border: 1px solid black;
-    font-size: 10px;
-  }
-  table td {
-    padding: 1px;
-    border: 1px solid black;
-    font-size: 11px; /* Ajusta el ancho máximo de la celda según tus necesidades */
-
-  }
-  table td:nth-child(1) {
-    text-align: center;
-    width: 10px;
-  }
-  table td:nth-child(2) {
-    text-align: center;
-    width: 40px;
-  }
-  table td:nth-child(3) {
-    width: 90px;
-  }
-  table td:nth-child(4) {
-    width: 125px;
-  }
-  table td:nth-child(10) {
-    width: 80px;
-  }
-  table td:nth-child(13) {
-    width: 65px;
-  }
-
-  table th {
-    background-color: #f2f2f2;
-    font-weight: bold;
-    color: #444;
-  }
-
-  table tr:hover {
-    background-color: #ddd;
-  }
-  thead {
-  page-break-before: always;
-  page-break-inside: avoid;
-}
-th:last-child {
-  page-break-after: avoid;
-}
-td,th{
-  text-align: center
-}
-
-    .tituloU{
-      font-size: 28px;
-      font: serif
-    }
-    .subtitulo{
-      font-size: 20px;
-    }
-    .subtitulo2{
-      font-size: 16px;
-    }
-    .subtitulo3{
-      font-size: 15px;
-    }
-    .subtitulo4{
-      font-size: 13px;
-    }
-    .reciboTitulo{
-      font-size: 35px;
-    }
-    .reciboTitulo b{
-       padding-bottom: -40px;
-       border-bottom: 1px solid black;
-    }
-    .fila{
-      width:65%;
-      height: 15%;
-      background-color:red;
-
-    }
-
-     .linea{
-       display: inline-block;
-     }
-</style>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -113,9 +19,100 @@ td,th{
     <meta charset="utf-8">
     <title>Report Box</title>
     <style media="screen">
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        text-align: left;
+      }
 
+      table th {
+        border: 1px solid black;
+        font-size: 10px;
+      }
+      table td {
+        padding: 1px;
+        border: 1px solid black;
+        font-size: 11px; /* Ajusta el ancho máximo de la celda según tus necesidades */
+
+      }
+      table td:nth-child(1) {
+        text-align: center;
+        width: 10px;
+      }
+      table td:nth-child(2) {
+        text-align: center;
+        width: 40px;
+      }
+      table td:nth-child(3) {
+        width: 90px;
+      }
+      table td:nth-child(4) {
+        width: 125px;
+      }
+      table td:nth-child(10) {
+        width: 80px;
+      }
+      table td:nth-child(13) {
+        width: 65px;
+      }
+
+      table th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+        color: #444;
+      }
+
+      table tr:hover {
+        background-color: #ddd;
+      }
+      thead {
+      page-break-before: always;
+      page-break-inside: avoid;
+    }
+    th:last-child {
+      page-break-after: avoid;
+    }
+    td,th{
+      text-align: center
+    }
+
+        .tituloU{
+          font-size: 28px;
+          font: serif
+        }
+        .subtitulo{
+          font-size: 20px;
+        }
+        .subtitulo2{
+          font-size: 16px;
+        }
+        .subtitulo3{
+          font-size: 15px;
+        }
+        .subtitulo4{
+          font-size: 13px;
+        }
+        .reciboTitulo{
+          font-size: 35px;
+        }
+        .reciboTitulo b{
+           padding-bottom: -40px;
+           border-bottom: 1px solid black;
+        }
+        .fila{
+          width:65%;
+          height: 15%;
+          background-color:red;
+
+        }
+
+         .linea{
+           display: inline-block;
+         }
     </style>
-  </head>
+</head>
   <body>
     <?php
     $fechai = date('Y-m-d');

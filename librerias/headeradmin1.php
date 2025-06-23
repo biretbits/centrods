@@ -5,6 +5,7 @@
     <title></title>
 
     	<meta charset="utf-8">
+      <meta charset="UTF-8">
 
      		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <script src="../activos/jquery-3.5.1.min.js"></script>
@@ -312,6 +313,11 @@ input[type=number] {
                       </ul>
                       </li>";
 
+                }else if(isset($_SESSION["tipo_usuario"]) && $_SESSION["tipo_usuario"] == "medico"){
+                  echo "
+                    <li class='nav-item' title='Registro diario'>
+                        <a class='nav-link btn btn-outline-warning' href='../controlador/medico.controlador.php?accion=vtd'><img src='../imagenes/archivo.ico'style='height: 25px;width: 25px;'></a>
+                    </li>";
                 }else if(isset($_SESSION["tipo_usuario"]) && $_SESSION["tipo_usuario"] == "admision"){
                   echo "
                     <li class='nav-item' title='Registro diario'>

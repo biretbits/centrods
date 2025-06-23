@@ -12,74 +12,71 @@ header('Content-Disposition: inline; filename="reporte.pdf"');
 
   include("../librerias/globales.php");
  //echo $fechai."fi   ".$fechaf."ff   ".$buscar."b   ".$pagina."p   ".$listarDeCuanto."ldc" ; ?>
-<style media="screen">
-.inlinea{
-    display: inline-block
-    float:left;
-  }
-#enLineaPoner{
-  float: left;
-}
-#subRayar {
-  text-decoration: underline; /* Subraya el texto */
-  text-decoration-color: #000; /* Color de la línea (opcional) */
-  text-decoration-thickness: 2px;
-}
-#cuadro{
-  border: 1px solid #000; /* Agrega un borde negro de 2 píxeles a los cuatro lados */
-  height: 81%;
-}
-#linea{
-  border-bottom: 1px solid black;
-}
-#linea2{
-  border-top: 1px solid black;
-}
-#subtitulos{
-  font-size: 12px;
-  background-color: lightgray;
-  font-weight: bold;
-}
-#datos{
-  font-size: 10px;
-}
-table {
-    border-collapse: collapse; /* Elimina los espacios entre bordes */
-}
-th, td {
-    border: 1px solid black; /* Borde de 1px de color negro */
-    text-align: left; /* Alineación del texto */
-}
-th {
-    background-color: white; /* Color de fondo para los encabezados */
-}
-
-#table1 {
-    width: 100%;
-    margin-top: 15px;
-    margin-left: 25px;
-    margin-bottom: 30px;
-}
-#tabla2 {
-    margin-left: 60px;
-    width:50%;
-    margin-top: 33%;
-}
-#saltoLinea{
-  line-height: 0.1;
-}
-
-#saltoLinea2{
-  line-height: 0.5;
-}
-</style>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title>Report Box</title>
     <style media="screen">
+    .inlinea{
+        display: inline-block
+        float:left;
+      }
+    #enLineaPoner{
+      float: left;
+    }
+    #subRayar {
+      text-decoration: underline; /* Subraya el texto */
+      text-decoration-color: #000; /* Color de la línea (opcional) */
+      text-decoration-thickness: 2px;
+    }
+    #cuadro{
+      border: 1px solid #000; /* Agrega un borde negro de 2 píxeles a los cuatro lados */
+      height: 81%;
+    }
+    #linea{
+      border-bottom: 1px solid black;
+    }
+    #linea2{
+      border-top: 1px solid black;
+    }
+    #subtitulos{
+      font-size: 12px;
+      background-color: lightgray;
+      font-weight: bold;
+    }
+    #datos{
+      font-size: 10px;
+    }
+    table {
+        border-collapse: collapse; /* Elimina los espacios entre bordes */
+    }
+    th, td {
+        border: 1px solid black; /* Borde de 1px de color negro */
+        text-align: left; /* Alineación del texto */
+    }
+    th {
+        background-color: white; /* Color de fondo para los encabezados */
+    }
 
+    #table1 {
+        width: 100%;
+        margin-top: 15px;
+        margin-left: 25px;
+        margin-bottom: 30px;
+    }
+    #tabla2 {
+        margin-left: 60px;
+        width:50%;
+        margin-top: 33%;
+    }
+    #saltoLinea{
+      line-height: 0.1;
+    }
+
+    #saltoLinea2{
+      line-height: 0.5;
+    }
     </style>
   </head>
   <body>

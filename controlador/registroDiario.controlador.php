@@ -15,13 +15,13 @@ class RegistroDiarioControlador{
 	public function visualizarTablaRegistroDiario(){
 		$rdi =new RegistroDiario();
     $listarDeCuanto = 5;$pagina = 1;$buscar = "";$fecha = date('Y-m-d');
-    $resultodoUsuarios = $rdi->SelectPorBusquedaRegistroDiario("",false,false,false);
+    $resultodoUsuarios = $rdi->SelectPorBusquedaRegistroDiario("",false,false,false,false);
     $num_filas_total = mysqli_num_rows($resultodoUsuarios);
     $TotalPaginas = ceil($num_filas_total / $listarDeCuanto);//obtenenemos el total de paginas a mostrar
             //calculamos el registro inicial
     $inicioList = ($pagina - 1) * $listarDeCuanto;
     // Verificar si la consulta devuelve resultados
-    $res = $rdi->SelectPorBusquedaRegistroDiario("",$inicioList,$listarDeCuanto,false);
+    $res = $rdi->SelectPorBusquedaRegistroDiario("",$inicioList,$listarDeCuanto,false,false);
     $resul = $this->Uniendo($res,$rdi);
     $ser = new Servicio();
    $servicios = $ser->Selecionar_servicios();
@@ -72,15 +72,14 @@ class RegistroDiarioControlador{
 
 public function BuscarRegistrosDiarioTabla($buscar,$pagina,$listarDeCuanto,$fecha){
   $rdi =new RegistroDiario();
-  $resultodoUsuarios = $rdi->SelectPorBusquedaRegistroDiario($buscar,false,false,$fecha);
+  $resultodoUsuarios = $rdi->SelectPorBusquedaRegistroDiario($buscar,false,false,$fecha,false);
   $num_filas_total = mysqli_num_rows($resultodoUsuarios);
   $TotalPaginas = ceil($num_filas_total / $listarDeCuanto);//obtenenemos el total de paginas a mostrar
           //calculamos el registro inicial
   $inicioList = ($pagina - 1) * $listarDeCuanto;
   // Verificar si la consulta devuelve resultad
-  $res = $rdi->SelectPorBusquedaRegistroDiario($buscar,$inicioList,$listarDeCuanto,$fecha);
+  $res = $rdi->SelectPorBusquedaRegistroDiario($buscar,$inicioList,$listarDeCuanto,$fecha,false);
   $resul = $this->Uniendo($res,$rdi);
-
   echo "
   <div class='row'>
     <div class='col'>
@@ -105,9 +104,7 @@ public function BuscarRegistrosDiarioTabla($buscar,$pagina,$listarDeCuanto,$fech
           </tr>
         </thead>
       <tbody> ";
-
-
-      if ($resul && count($resul) > 0) {
+      if($resul && count($resul) > 0) {
             $i = $inicioList;
           foreach ($resul as $fi){
               echo "<tr>";
@@ -123,20 +120,16 @@ public function BuscarRegistrosDiarioTabla($buscar,$pagina,$listarDeCuanto,$fech
                 echo "<td>".$fi['medico_nombre']."</td>";
                 echo "<td>";
                 if(isset($fi['historial_clinico_rd']) && $fi['historial_clinico_rd'] == "no"){
-
                       echo "<div class='btn-group' role='group' aria-label='Basic mixed styles example'>";
                         echo "<button type='button' class='btn btn-dark' title='Sin historial' style='font-size:10px' onclick='accionHitorialVer(".$fi["paciente_rd"].",".$fi["cod_rd"].")'>Sin historial</button>";
                       echo "</div>";
-
                 }else{
                   echo "<div class='btn-group' role='group' aria-label='Basic mixed styles example'>";
                     echo "<button type='button' class='btn btn-success' title='Hay historiales del paciente' style='font-size:10px'
                     onclick='accionHitorialVer(".$fi["paciente_rd"].",".$fi["cod_rd"].")'><img src='../imagenes/evaluacion.ico' style='height: 25px;width: 25px;'> His.</button>";
-
                   echo "</div>";
                 }
                 echo "</td>";
-
                 echo "<td>".$fi['admision_nombre']."</td>";
                 if($fi["fecha_retorno_historia_rd"]=='0000-00-00'){
                   echo "<td style='font-size:13px;color:blue'>Sin fecha de retorno</td>";
@@ -283,7 +276,7 @@ echo "<div class='row'>
           //calculamos el registro inicial
     $inicioList = ($pagina - 1) * $listarDeCuanto;
     // Verificar si la consulta devuelve resultados
-    $res = $rdi->SelectPorBusquedaRegistroDiario($buscar,false,false,false,$fechai,$fechaf);
+    $res = $rdi->SelectPorBusquedaRegistroDiario($buscar,false,false,false,$fechai,$fechaf,false);
     $num_filas_total = mysqli_num_rows($res);
     //echo "numero de fillas".$num_filas_total;
     $resul = $this->Uniendo($res,$rdi);
@@ -376,13 +369,13 @@ echo "<div class='row'>
 
   public function BuscarRegistrosDiarioTablaDespuesDeActualizar($buscar,$pagina,$listarDeCuanto,$fecha){
     $rdi =new RegistroDiario();
-    $resultodoUsuarios = $rdi->SelectPorBusquedaRegistroDiario("",false,false,false);
+    $resultodoUsuarios = $rdi->SelectPorBusquedaRegistroDiario("",false,false,false,false);
     $num_filas_total = mysqli_num_rows($resultodoUsuarios);
     $TotalPaginas = ceil($num_filas_total / $listarDeCuanto);//obtenenemos el total de paginas a mostrar
             //calculamos el registro inicial
     $inicioList = ($pagina - 1) * $listarDeCuanto;
     // Verificar si la consulta devuelve resultados
-    $res = $rdi->SelectPorBusquedaRegistroDiario("",$inicioList,$listarDeCuanto,false);
+    $res = $rdi->SelectPorBusquedaRegistroDiario("",$inicioList,$listarDeCuanto,false,false);
     $resul = $this->Uniendo($res,$rdi);
     require ("../vista/registroDiario/tablaRegistroDiario.php");
   }
@@ -393,13 +386,13 @@ echo "<div class='row'>
   public function reportesRegistroDiario(){
     $rdi =new RegistroDiario();
     $listarDeCuanto = 5;$pagina = 1;$buscar = "";$fecha = date('Y-m-d');
-    $resultodoUsuarios = $rdi->SelectPorBusquedaRegistroDiario("",false,false,false);
+    $resultodoUsuarios = $rdi->SelectPorBusquedaRegistroDiario("",false,false,false,false);
     $num_filas_total = mysqli_num_rows($resultodoUsuarios);
     $TotalPaginas = ceil($num_filas_total / $listarDeCuanto);//obtenenemos el total de paginas a mostrar
             //calculamos el registro inicial
     $inicioList = ($pagina - 1) * $listarDeCuanto;
     // Verificar si la consulta devuelve resultados
-    $res = $rdi->SelectPorBusquedaRegistroDiario("",$inicioList,$listarDeCuanto,false);
+    $res = $rdi->SelectPorBusquedaRegistroDiario("",$inicioList,$listarDeCuanto,false,false);
     $resul = $this->Uniendo($res,$rdi);
     $resultado = $rdi->seleccionarServicios();
     require("../vista/registroDiario/reportesDiario.php");
@@ -496,7 +489,7 @@ echo "<div class='row'>
 }
 
 	$rd=new  RegistroDiarioControlador();
-if(isset($_SESSION["tipo_usuario"]) && $_SESSION["tipo_usuario"]=='admision')
+if(isset($_SESSION["tipo_usuario"]) && $_SESSION["tipo_usuario"]=='admision' || isset($_SESSION["tipo_usuario"]) && $_SESSION["tipo_usuario"]=='medico')
 {
 	if(isset($_GET["accion"]) && $_GET["accion"]=="vtd"){
 		$rd->visualizarTablaRegistroDiario();

@@ -12,218 +12,6 @@ header('Content-Disposition: inline; filename="reporte.pdf"');
 
   include("../librerias/globales.php");
  //echo $fechai."fi   ".$fechaf."ff   ".$buscar."b   ".$pagina."p   ".$listarDeCuanto."ldc" ; ?>
-<style media="screen">
-
-.salto-pagina {
-   page-break-after: always;
- }
-.image {
-    width: 105%;
-    height: 95%;
-  }
-  .image-container {
-    text-align: center;
-  }
-.inlinea{
-    display: inline-block
-    float:left;
-  }
-#enLineaPoner{
-  float: left;
-}
-#subRayar {
-  text-decoration: underline; /* Subraya el texto */
-  text-decoration-color: #000; /* Color de la línea (opcional) */
-  text-decoration-thickness: 2px;
-}
-#cuadro{
-  border: 1px solid #000; /* Agrega un borde negro de 2 píxeles a los cuatro lados */
-  height: 81%;
-}
-#cuadro2{
-  border: 1px solid #000; /* Agrega un borde negro de 2 píxeles a los cuatro lados */
-  height: 81%;
-}
-#linea{
-  border-bottom: 1px solid black;
-}
-#linea2{
-  border-top: 1px solid black;
-}
-#subtitulos{
-  font-size: 12px;
-  background-color: lightgray;
-  font-weight: bold;
-}
-#datos{
-  font-size: 10px;
-}
-table {
-    border-collapse: collapse; /* Elimina los espacios entre bordes */
-}
-th, td {
-    border: 1px solid black; /* Borde de 1px de color negro */
-    text-align: left; /* Alineación del texto */
-}
-th {
-    background-color: white; /* Color de fondo para los encabezados */
-}
-
-#table1 {
-    width: 100%;
-    margin-top: 15px;
-    margin-left: 25px;
-    margin-bottom: 30px;
-}
-#tabla2 {
-    margin-left: 60px;
-    width:50%;
-    margin-top: 33%;
-}
-#saltoLinea{
-  line-height: 0.1;
-}
-
-#saltoLinea2{
-  line-height: 0.5;
-}
-</style>
-
-<style media="screen">
-  /*codigo de css del reporte de consulta*/
-  .inlinea{
-      display: inline-block
-      float:left;
-    }
-  .clear {
-    clear: both;
-  }
-  .once{
-    font-size: 11px;
-  }
-  .doce{
-    font-size: 12px;
-  }
-  .trece{
-    font-size: 13px;
-  }
-  .catorce{
-    font-size: 14px
-  }
-  .quince{
-    font-size: 15px
-  }
-  .grey{
-    color:grey
-  }
-</style>
-<style>
-
-  td {
-    border: 1px solid black;
-  }
-
-  /* Personalizar el tamaño de las celdas de la segunda fila */
-  tr:nth-child(2) td:nth-child(1){
-
-  }
-
-  /* Asignar ancho a las columnas */
-  .col1 { width: 17%; }
-  .col2 { width: 17%; }
-  .col3 { width: 17%; }
-  .col4 { width: 20%; }
-  .col5 { width: 15%; }
-  .col6 { width: 15%; }
-.centrar{
-  text-align: center;
-}
-.left{
-text-align: left;
-}
-.cuadro {
-height: 28px;
-position: relative;
-padding: 1px
-}
-.estudiante {
-position: absolute;
-bottom: 5px; /* Ajusta la posición vertical */
-}
-
-.line-text1 {
-  position: relative;
-  width: 96%;
-  min-height: 120px; /* Puedes ajustar la altura mínima */
-  line-height: 25px; /* Ajusta la altura de cada línea */
-  padding-left: 10px;
-  padding-right: 10px;
-  background:
-    linear-gradient(to bottom, white 1px, transparent 1px) repeat-y;
-}
-
-.line-text1 span {
-  position: relative;
-  background: white;
-}
-
-.line-text2 {
-  position: relative;
-  width: 76%;
-  min-height: 110px; /* Puedes ajustar la altura mínima */
-  line-height: 25px; /* Ajusta la altura de cada línea */
-  padding-left: 10px;
-  padding-right: 10px;
-  background:
-    linear-gradient(to bottom, white 1px, transparent 1px) repeat-y;
-}
-
-.line-text2 span {
-  position: relative;
-  background: white;
-}
-
-.line-text3 {
-  position: relative;
-  width: 76%;
-  min-height: 70px; /* Puedes ajustar la altura mínima */
-  line-height: 25px; /* Ajusta la altura de cada línea */
-  padding-left: 10px;
-  padding-right: 10px;
-  background:
-    linear-gradient(to bottom, white 1px, transparent 1px) repeat-y;
-}
-
-.line-text3 span {
-  position: relative;
-  background: white;
-}
-.quitarBordeIzquierdoDerecho{
-border-left: 1px solid white;
-border-right: 1px solid white;
-}
-.arribaQuitar{
-border-top: 1px solid white;
-}
-
-/*fin del codigo reporte consulta*/
-
-.izquierdoBorde{
-  border-left: 1px solid white;
-}
-.derechoBorde{
-  border-right: 1px solid white;
-}
-.arribaBorde{
-  border-top: 1px solid white;
-}
-.abajoBorde{
-  border-bottom: 1px solid white;
-}
-.espacio{
-  padding: 0;
-}
-</style>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -231,7 +19,217 @@ border-top: 1px solid white;
     <title>Report Box</title>
     <style media="screen">
 
+    .salto-pagina {
+       page-break-after: always;
+     }
+    .image {
+        width: 105%;
+        height: 95%;
+      }
+      .image-container {
+        text-align: center;
+      }
+    .inlinea{
+        display: inline-block
+        float:left;
+      }
+    #enLineaPoner{
+      float: left;
+    }
+    #subRayar {
+      text-decoration: underline; /* Subraya el texto */
+      text-decoration-color: #000; /* Color de la línea (opcional) */
+      text-decoration-thickness: 2px;
+    }
+    #cuadro{
+      border: 1px solid #000; /* Agrega un borde negro de 2 píxeles a los cuatro lados */
+      height: 81%;
+    }
+    #cuadro2{
+      border: 1px solid #000; /* Agrega un borde negro de 2 píxeles a los cuatro lados */
+      height: 81%;
+    }
+    #linea{
+      border-bottom: 1px solid black;
+    }
+    #linea2{
+      border-top: 1px solid black;
+    }
+    #subtitulos{
+      font-size: 12px;
+      background-color: lightgray;
+      font-weight: bold;
+    }
+    #datos{
+      font-size: 10px;
+    }
+    table {
+        border-collapse: collapse; /* Elimina los espacios entre bordes */
+    }
+    th, td {
+        border: 1px solid black; /* Borde de 1px de color negro */
+        text-align: left; /* Alineación del texto */
+    }
+    th {
+        background-color: white; /* Color de fondo para los encabezados */
+    }
+
+    #table1 {
+        width: 100%;
+        margin-top: 15px;
+        margin-left: 25px;
+        margin-bottom: 30px;
+    }
+    #tabla2 {
+        margin-left: 60px;
+        width:50%;
+        margin-top: 33%;
+    }
+    #saltoLinea{
+      line-height: 0.1;
+    }
+
+    #saltoLinea2{
+      line-height: 0.5;
+    }
     </style>
+
+    <style media="screen">
+      /*codigo de css del reporte de consulta*/
+      .inlinea{
+          display: inline-block
+          float:left;
+        }
+      .clear {
+        clear: both;
+      }
+      .once{
+        font-size: 11px;
+      }
+      .doce{
+        font-size: 12px;
+      }
+      .trece{
+        font-size: 13px;
+      }
+      .catorce{
+        font-size: 14px
+      }
+      .quince{
+        font-size: 15px
+      }
+      .grey{
+        color:grey
+      }
+    </style>
+    <style>
+
+      td {
+        border: 1px solid black;
+      }
+
+      /* Personalizar el tamaño de las celdas de la segunda fila */
+      tr:nth-child(2) td:nth-child(1){
+
+      }
+
+      /* Asignar ancho a las columnas */
+      .col1 { width: 17%; }
+      .col2 { width: 17%; }
+      .col3 { width: 17%; }
+      .col4 { width: 20%; }
+      .col5 { width: 15%; }
+      .col6 { width: 15%; }
+    .centrar{
+      text-align: center;
+    }
+    .left{
+    text-align: left;
+    }
+    .cuadro {
+    height: 28px;
+    position: relative;
+    padding: 1px
+    }
+    .estudiante {
+    position: absolute;
+    bottom: 5px; /* Ajusta la posición vertical */
+    }
+
+    .line-text1 {
+      position: relative;
+      width: 96%;
+      min-height: 120px; /* Puedes ajustar la altura mínima */
+      line-height: 25px; /* Ajusta la altura de cada línea */
+      padding-left: 10px;
+      padding-right: 10px;
+      background:
+        linear-gradient(to bottom, white 1px, transparent 1px) repeat-y;
+    }
+
+    .line-text1 span {
+      position: relative;
+      background: white;
+    }
+
+    .line-text2 {
+      position: relative;
+      width: 76%;
+      min-height: 110px; /* Puedes ajustar la altura mínima */
+      line-height: 25px; /* Ajusta la altura de cada línea */
+      padding-left: 10px;
+      padding-right: 10px;
+      background:
+        linear-gradient(to bottom, white 1px, transparent 1px) repeat-y;
+    }
+
+    .line-text2 span {
+      position: relative;
+      background: white;
+    }
+
+    .line-text3 {
+      position: relative;
+      width: 76%;
+      min-height: 70px; /* Puedes ajustar la altura mínima */
+      line-height: 25px; /* Ajusta la altura de cada línea */
+      padding-left: 10px;
+      padding-right: 10px;
+      background:
+        linear-gradient(to bottom, white 1px, transparent 1px) repeat-y;
+    }
+
+    .line-text3 span {
+      position: relative;
+      background: white;
+    }
+    .quitarBordeIzquierdoDerecho{
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+    }
+    .arribaQuitar{
+    border-top: 1px solid white;
+    }
+
+    /*fin del codigo reporte consulta*/
+
+    .izquierdoBorde{
+      border-left: 1px solid white;
+    }
+    .derechoBorde{
+      border-right: 1px solid white;
+    }
+    .arribaBorde{
+      border-top: 1px solid white;
+    }
+    .abajoBorde{
+      border-bottom: 1px solid white;
+    }
+    .espacio{
+      padding: 0;
+    }
+    </style>
+
   </head>
   <body>
     <?php

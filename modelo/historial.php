@@ -17,7 +17,7 @@ public $con;
 			$this->con= $co->Conectaras();
 	}
 
-  public function SelectPorBusquedaHistorial($inicioList=false,$listarDeCuanto=false,$fecha=false,$cod_paciente,$fechai=false,$fechaf=false,$buscar=false){
+  public function SelectPorBusquedaHistorial($inicioList=false,$listarDeCuanto=false,$fecha=false,$cod_paciente=false,$fechai=false,$fechaf=false,$buscar=false){
     // Verificar si $buscar tiene contenido
     $sql = " select *from historial where paciente_rd = $cod_paciente ";
     if($buscar !=''){
@@ -703,7 +703,7 @@ function SelectHistorialMinimo($cod_rd,$paciente_rd){
     return $resul;
   }
 
-  public function SelecccionarDatosDelHistorial($inicioList=false,$listarDeCuanto=false,$fecha=false,$cod_paciente,$cod_his,$cod_rd,
+  public function SelecccionarDatosDelHistorial($inicioList=false,$listarDeCuanto=false,$fecha=false,$cod_paciente=false,$cod_his=false,$cod_rd=false,
   $fechai=false,$fechaf=false){
     // Verificar si $buscar tiene contenido
     $sql = "select *from historial_dato where cod_his = $cod_his and paciente_rd=$cod_paciente and cod_rd=$cod_rd ";

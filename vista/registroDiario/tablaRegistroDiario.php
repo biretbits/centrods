@@ -81,16 +81,16 @@ $_SESSION["diario"] = $RegistroDiario;?>
               <!-- Campos de datos personales -->
               <div class="col-md-4 mb-3">
                 <label for="nombre" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="nombre" placeholder="Ingresa tu nombre" onkeyup="buscarExitepaciente()" autocomplete="off">
+                <input type="text" class="form-control" id="nombre" placeholder="Ingresa tu nombre" onkeyup="buscarExitepaciente()" autocomplete="off" style="text-transform: capitalize;">
                 <div id="resultado" align="left" class="alert alert-light mb-0 py-0 border-0 encimaElTexto"></div>
               </div>
               <div class="col-md-4 mb-3">
                 <label for="ap_usuario" class="form-label">Apellido paterno</label>
-                <input type="text" class="form-control" id="ap_usuario" placeholder="Ingresa Apellido paterno">
+                <input type="text" class="form-control" id="ap_usuario" placeholder="Ingresa Apellido paterno" style="text-transform: capitalize;">
               </div>
               <div class="col-md-4 mb-3">
                 <label for="am_usuario" class="form-label">Apellido materno</label>
-                <input type="text" class="form-control" id="am_usuario" placeholder="Ingresa Apellido materno">
+                <input type="text" class="form-control" id="am_usuario" placeholder="Ingresa Apellido materno" style="text-transform: capitalize;">
               </div>
               <div class="col-md-4 mb-3">
                 <label for="fecha_nacimiento" class="form-label">Fecha de Nacimiento</label>
@@ -102,7 +102,7 @@ $_SESSION["diario"] = $RegistroDiario;?>
               </div>
               <div class="col-md-4 mb-3">
                 <label for="direccion_usuario" class="form-label">Dirección</label>
-                <input type="text" class="form-control" id="direccion_usuario" placeholder="Ingresa Tu Dirección">
+                <input type="text" class="form-control" id="direccion_usuario" placeholder="Ingresa Tu Dirección" style="text-transform: capitalize;">
               </div>
 
               <!-- Campos adicionales -->
@@ -622,7 +622,7 @@ function BuscarRegistrosDiarios(page){
 
 
    function buscarResponsableAdmision() {
-           vaciarDESPUESdeUNtiempoAdmision();
+           //vaciarDESPUESdeUNtiempoAdmision();
            var respadmision = document.getElementById("respadmision").value;
            if (respadmision != "") {
                $.ajax({
@@ -639,7 +639,7 @@ function BuscarRegistrosDiarios(page){
                          unir+="<div><div id='u' style=' display: inline-block;'>"+Convertir(data[i].nombre_usuario)+"</div> ";
                          unir+="<div id='ap' style=' display: inline-block;'> "+Convertir(data[i].ap_usuario)+"</div> ";
                          unir+="<div id='am' style=' display: inline-block;'> "+Convertir(data[i].am_usuario)+"</div> ";
-                         unir+="<div id='p' style=' display: inline-block;'> "+Convertir(data[i].tipo_usuario)+"</div> ";
+                         unir+="<div id='p' style=' display: inline-block;display:none;'> "+Convertir(data[i].tipo_usuario)+"</div> ";
                          unir+="<div id='c' style=' display: inline-block;display:none;'>"+data[i].cod_usuario+"</div></div>";
 
                        }
@@ -655,8 +655,8 @@ function BuscarRegistrosDiarios(page){
 
                            //dentro de los id de la vista mostramos los datos que estan en el div resultado
                            if(respadmision != ""){
-                             document.getElementById("respadmision").disabled = true;
-                             document.getElementById("respadmision").value = Convertir(respadmision)+" "+Convertir(ap)+" "+Convertir(am)+"   "+Convertir(p);
+                             //document.getElementById("respadmision").disabled = true;
+                             document.getElementById("respadmision").value = Convertir(respadmision)+" "+Convertir(ap)+" "+Convertir(am);
                              document.getElementById("cd_admision").value = c;
                              $('#resultadoadmision').html(""); //para vaciar
 
@@ -696,7 +696,7 @@ function BuscarRegistrosDiarios(page){
 
        }
        function atencionMedico() {
-         vaciarDESPUESdeUNtiempoMedico();
+        // vaciarDESPUESdeUNtiempoMedico();
                var personalquebrindalaatencion = document.getElementById("personalatencion").value;
                if ( personalquebrindalaatencion != "") {
                    $.ajax({
@@ -713,7 +713,7 @@ function BuscarRegistrosDiarios(page){
                              unir+="<div><div id='u' style=' display: inline-block;'>"+Convertir(data[i].nombre_usuario)+"</div> ";
                              unir+="<div id='ap' style=' display: inline-block;'> "+Convertir(data[i].ap_usuario)+"</div> ";
                              unir+="<div id='am' style=' display: inline-block;'> "+Convertir(data[i].am_usuario)+"</div> ";
-                             unir+="<div id='p' style=' display: inline-block;'> "+Convertir(data[i].profesion_usuario)+"</div> ";
+                             unir+="<div id='p' style=' display: inline-block;display:none;'> "+Convertir(data[i].profesion_usuario)+"</div> ";
                              unir+="<div id='c' style=' display: inline-block;display:none;'>"+data[i].cod_usuario+"</div></div>";
 
                            }
@@ -729,8 +729,8 @@ function BuscarRegistrosDiarios(page){
                              var p = $(this).children().eq(3).text();
                    //dentro de los id de la vista mostramos los datos que estan en el div resultado
                                if(personalquebrindalaatencion != ""){
-                                 document.getElementById("personalatencion").disabled = true;
-                                 document.getElementById("personalatencion").value = Convertir(personalquebrindalaatencion)+" "+Convertir(ap)+" "+Convertir(am)+"   "+Convertir(p);
+                                 //document.getElementById("personalatencion").disabled = true;
+                                 document.getElementById("personalatencion").value = Convertir(personalquebrindalaatencion)+" "+Convertir(ap)+" "+Convertir(am);
                                  document.getElementById("cd_medico").value = c;
                                  $('#resultadomedico').html(""); //para vaciar
 
@@ -773,14 +773,14 @@ function BuscarRegistrosDiarios(page){
            function insertardatosus(){
              var cod_rd = document.getElementById("cod_rd").value;
              var cod_usuario = document.getElementById("cod_usuario").value;
-           	var nombre = document.getElementById("nombre").value;
-           	var ap_usuario = document.getElementById("ap_usuario").value;
-           	var am_usuario = document.getElementById("am_usuario").value;
-           	var fecha_nacimiento = document.getElementById("fecha_nacimiento").value;
+           	 var nombre = document.getElementById("nombre").value;
+           	 var ap_usuario = document.getElementById("ap_usuario").value;
+           	 var am_usuario = document.getElementById("am_usuario").value;
+           	 var fecha_nacimiento = document.getElementById("fecha_nacimiento").value;
              var edad = parseInt(document.getElementById("edad").value);
 
-           	var direccion_usuario = document.getElementById("direccion_usuario").value;
-           	var servicio = document.getElementById("servicio").value;
+           	 var direccion_usuario = document.getElementById("direccion_usuario").value;
+           	 var servicio = document.getElementById("servicio").value;
              var signos_sintomas = document.getElementById("signos_sintomas").value;
              var historiaclinica = document.getElementById("historiaclinica").value;
 

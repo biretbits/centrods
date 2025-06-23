@@ -12,121 +12,6 @@ header('Content-Disposition: inline; filename="reporte.pdf"');
 
   include("../librerias/globales.php");
  //echo $fechai."fi   ".$fechaf."ff   ".$buscar."b   ".$pagina."p   ".$listarDeCuanto."ldc" ; ?>
-<style media="screen">
-table {
-    border-collapse: collapse;
-    width: 100%;
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    text-align: left;
-  }
-
-  table th {
-    border: 1px solid black;
-    font-size: 10px;
-  }
-  table td {
-    padding: 1px;
-    border: 1px solid black;
-    font-size: 11px; /* Ajusta el ancho máximo de la celda según tus necesidades */
-
-  }
-  table td:nth-child(1) {
-    text-align: center;
-    width: 80px;
-  }
-  table td:nth-child(2) {
-    text-align: left;
-    width: 190px;
-    max-width: 190px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-  }
-  table td:nth-child(3) {
-    width: 140px;
-    text-align:left;
-  }
-  table td:nth-child(4) {
-    width: 120px;
-    text-align: left;
-  }
-  table td:nth-child(5) {
-    width: 110px;
-    text-align: left;
-  }
-  table td:nth-child(6) {
-    width: 90px;
-    text-align: center;
-  }
-  table td:nth-child(7) {
-    width: 70px;
-    text-align: right;
-  }
-  table td:nth-child(8) {
-    width: 70px;
-    text-align: right;
-  }
-  table td:nth-child(9) {
-    width: 70px;
-    text-align: right;
-  }
-
-
-  table th {
-    background-color: #f2f2f2;
-    font-weight: bold;
-    color: #444;
-  }
-
-  table tr:hover {
-    background-color: #ddd;
-  }
-  thead {
-  page-break-before: always;
-  page-break-inside: avoid;
-}
-th:last-child {
-  page-break-after: avoid;
-}
-td,th{
-  text-align: center
-}
-
-    .tituloU{
-      font-size: 28px;
-      font: serif
-    }
-    .subtitulo{
-      font-size: 20px;
-    }
-    .subtitulo2{
-      font-size: 16px;
-    }
-    .subtitulo3{
-      font-size: 15px;
-    }
-    .subtitulo4{
-      font-size: 13px;
-    }
-    .reciboTitulo{
-      font-size: 35px;
-    }
-    .reciboTitulo b{
-       padding-bottom: -40px;
-       border-bottom: 1px solid black;
-    }
-    .fila{
-      width:65%;
-      height: 15%;
-      background-color:red;
-
-    }
-
-     .linea{
-       display: inline-block;
-     }
-</style>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -134,8 +19,121 @@ td,th{
     <meta charset="utf-8">
     <title>Report Box</title>
     <style media="screen">
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        text-align: left;
+      }
 
+      table th {
+        border: 1px solid black;
+        font-size: 10px;
+      }
+      table td {
+        padding: 1px;
+        border: 1px solid black;
+        font-size: 11px; /* Ajusta el ancho máximo de la celda según tus necesidades */
+
+      }
+      table td:nth-child(1) {
+        text-align: center;
+        width: 80px;
+      }
+      table td:nth-child(2) {
+        text-align: left;
+        width: 190px;
+        max-width: 190px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+      table td:nth-child(3) {
+        width: 140px;
+        text-align:left;
+      }
+      table td:nth-child(4) {
+        width: 120px;
+        text-align: left;
+      }
+      table td:nth-child(5) {
+        width: 110px;
+        text-align: left;
+      }
+      table td:nth-child(6) {
+        width: 90px;
+        text-align: center;
+      }
+      table td:nth-child(7) {
+        width: 70px;
+        text-align: right;
+      }
+      table td:nth-child(8) {
+        width: 70px;
+        text-align: right;
+      }
+      table td:nth-child(9) {
+        width: 70px;
+        text-align: right;
+      }
+
+
+      table th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+        color: #444;
+      }
+
+      table tr:hover {
+        background-color: #ddd;
+      }
+      thead {
+      page-break-before: always;
+      page-break-inside: avoid;
+    }
+    th:last-child {
+      page-break-after: avoid;
+    }
+    td,th{
+      text-align: center
+    }
+
+        .tituloU{
+          font-size: 28px;
+          font: serif
+        }
+        .subtitulo{
+          font-size: 20px;
+        }
+        .subtitulo2{
+          font-size: 16px;
+        }
+        .subtitulo3{
+          font-size: 15px;
+        }
+        .subtitulo4{
+          font-size: 13px;
+        }
+        .reciboTitulo{
+          font-size: 35px;
+        }
+        .reciboTitulo b{
+           padding-bottom: -40px;
+           border-bottom: 1px solid black;
+        }
+        .fila{
+          width:65%;
+          height: 15%;
+          background-color:red;
+
+        }
+
+         .linea{
+           display: inline-block;
+         }
     </style>
+
   </head>
   <body>
     <?php

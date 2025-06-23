@@ -20,13 +20,16 @@ class RegistroDiario
     $resul = $this->con->query($lis);
     return $resul;
   }
-  public function SelectPorBusquedaRegistroDiario($buscar='',$inicioList=false,$listarDeCuanto=false,$fecha=false,$fechai=false,$fechaf=false){
+  public function SelectPorBusquedaRegistroDiario($buscar='',$inicioList=false,$listarDeCuanto=false,$fecha=false,$fechai=false,$fechaf=false,$cod_medico=false){
     // Verificar si $buscar tiene contenido
-    $sql = "SELECT * FROM usuario as u inner join registro_diario as rd on u.cod_usuario = rd.paciente_rd where u.tipo_usuario = 'paciente' and rd.estado = 'activo'";
+    $sql = "SELECT * FROM usuario as u inner join registro_diario as rd on u.cod_usuario = rd.paciente_rd where u.tipo_usuario = 'paciente' and rd.estado = 'activo' ";
+    if(is_numeric($cod_medico)){
+      $sql.=" and pe_brinda_atencion_rd=$cod_medico ";
+    }
     if ($buscar != "" && $buscar != null) {
         // Convertir $buscar a minúsculas
         $buscar = strtolower($buscar);
-        $sql.=" and LOWER(u.nombre_usuario) LIKE '%".$buscar."%' OR LOWER(u.ap_usuario) LIKE '%".$buscar."%' OR LOWER(u.am_usuario) LIKE '%".$buscar."%' ";
+        $sql.=" and (LOWER(u.nombre_usuario) LIKE '%".$buscar."%' OR LOWER(u.ap_usuario) LIKE '%".$buscar."%' OR LOWER(u.am_usuario) LIKE '%".$buscar."%' )";
     }
     if($fecha != false){
   		//$di=strtotime($fecha);
@@ -44,7 +47,7 @@ class RegistroDiario
     if(is_numeric($inicioList)&&is_numeric($listarDeCuanto)){
       $sql.="ORDER BY rd.cod_rd DESC LIMIT $listarDeCuanto OFFSET $inicioList ";
     }
-
+    //echo "<br><br><br><br><br>".$sql. "   ".$cod_medico;
     $resul = $this->con->query($sql);
     // Retornar el resultado
     return $resul;
@@ -54,14 +57,14 @@ class RegistroDiario
     $resul = $this->con->query($sql);
     // Retornar el resultado
     $fi = mysqli_fetch_array($resul);
-    return $fi["nombre_usuario"]." ".$fi["ap_usuario"]." ".$fi["am_usuario"]."  ".ucfirst($fi["tipo_usuario"]);
+    return $fi["nombre_usuario"]." ".$fi["ap_usuario"]." ".$fi["am_usuario"];
   }
 
 
   public function buscarPacientesql($nombre){
     $nombre = strtolower($nombre);
     $lis = "SELECT * FROM usuario
-      WHERE tipo_usuario = 'paciente'AND (LOWER(nombre_usuario) LIKE '%$nombre%' OR LOWER(ap_usuario) LIKE '%$nombre%' or LOWER(am_usuario) like '%$nombre%')
+      WHERE tipo_usuario = 'paciente'AND estado='activo' and (LOWER(nombre_usuario) LIKE '%$nombre%' OR LOWER(ap_usuario) LIKE '%$nombre%' or LOWER(am_usuario) like '%$nombre%')
           LIMIT 5 OFFSET 0;";
     $resul = $this->con->query($lis);
     return $resul;
@@ -70,7 +73,7 @@ class RegistroDiario
   public function buscarrespAdmisionsql($respadmision){
     $respadmision = strtolower($respadmision);
     $lis = "SELECT * FROM usuario
-      WHERE tipo_usuario = 'admision'AND (LOWER(nombre_usuario) LIKE '%$respadmision%' OR LOWER(ap_usuario) LIKE '%$respadmision%' or LOWER(am_usuario) like '%$respadmision%')
+      WHERE tipo_usuario = 'admision'AND estado='activo' and (LOWER(nombre_usuario) LIKE '%$respadmision%' OR LOWER(ap_usuario) LIKE '%$respadmision%' or LOWER(am_usuario) like '%$respadmision%')
           LIMIT 5 OFFSET 0;";
     $resul = $this->con->query($lis);
     return $resul;
@@ -78,7 +81,7 @@ class RegistroDiario
 public function buscarpersonalAtencionsql($personalquebrindalaatencion){
    $personalquebrindalaatencion = strtolower($personalquebrindalaatencion);
    $lis = "SELECT * FROM usuario
-     WHERE tipo_usuario = 'medico'AND (LOWER(nombre_usuario) LIKE '%$personalquebrindalaatencion%' OR LOWER(ap_usuario) LIKE '%$personalquebrindalaatencion%' or LOWER(am_usuario) like '%$personalquebrindalaatencion%')
+     WHERE tipo_usuario = 'medico'AND estado='activo' and (LOWER(nombre_usuario) LIKE '%$personalquebrindalaatencion%' OR LOWER(ap_usuario) LIKE '%$personalquebrindalaatencion%' or LOWER(am_usuario) like '%$personalquebrindalaatencion%')
          LIMIT 5 OFFSET 0;";
    $resul = $this->con->query($lis);
    return $resul;

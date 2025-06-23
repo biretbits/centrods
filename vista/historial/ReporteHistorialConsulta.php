@@ -12,72 +12,6 @@ header('Content-Disposition: inline; filename="reporte.pdf"');
 
   include("../librerias/globales.php");
  //echo $fechai."fi   ".$fechaf."ff   ".$buscar."b   ".$pagina."p   ".$listarDeCuanto."ldc" ; ?>
-<style media="screen">
-.inlinea{
-    display: inline-block
-    float:left;
-  }
-.clear {
-  clear: both;
-}
-.once{
-  font-size: 11px;
-}
-.doce{
-  font-size: 12px;
-}
-.trece{
-  font-size: 13px;
-}
-.catorce{
-  font-size: 14px
-}
-.quince{
-  font-size: 15px
-}
-.grey{
-  color:grey
-}
-  </style>
-  <style>
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    td {
-      border: 1px solid black;
-    }
-
-    /* Personalizar el tamaño de las celdas de la segunda fila */
-    tr:nth-child(2) td:nth-child(1){
-
-    }
-
-    /* Asignar ancho a las columnas */
-    .col1 { width: 17%; }
-    .col2 { width: 17%; }
-    .col3 { width: 17%; }
-    .col4 { width: 20%; }
-    .col5 { width: 15%; }
-    .col6 { width: 15%; }
-.centrar{
-    text-align: center;
-}
-.left{
-  text-align: left;
-}
-.cuadro {
-  height: 28px;
-  position: relative;
-  padding: 1px
-}
-.estudiante {
-  position: absolute;
-  bottom: 5px; /* Ajusta la posición vertical */
-}
-
-  </style>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -85,8 +19,71 @@ header('Content-Disposition: inline; filename="reporte.pdf"');
     <meta charset="utf-8">
     <title>Report Box</title>
     <style media="screen">
+    .inlinea{
+        display: inline-block
+        float:left;
+      }
+    .clear {
+      clear: both;
+    }
+    .once{
+      font-size: 11px;
+    }
+    .doce{
+      font-size: 12px;
+    }
+    .trece{
+      font-size: 13px;
+    }
+    .catorce{
+      font-size: 14px
+    }
+    .quince{
+      font-size: 15px
+    }
+    .grey{
+      color:grey
+    }
+      </style>
+      <style>
+        table {
+          width: 100%;
+          border-collapse: collapse;
+        }
 
-    </style>
+        td {
+          border: 1px solid black;
+        }
+
+        /* Personalizar el tamaño de las celdas de la segunda fila */
+        tr:nth-child(2) td:nth-child(1){
+
+        }
+
+        /* Asignar ancho a las columnas */
+        .col1 { width: 17%; }
+        .col2 { width: 17%; }
+        .col3 { width: 17%; }
+        .col4 { width: 20%; }
+        .col5 { width: 15%; }
+        .col6 { width: 15%; }
+    .centrar{
+        text-align: center;
+    }
+    .left{
+      text-align: left;
+    }
+    .cuadro {
+      height: 28px;
+      position: relative;
+      padding: 1px
+    }
+    .estudiante {
+      position: absolute;
+      bottom: 5px; /* Ajusta la posición vertical */
+    }
+
+      </style>
   </head>
   <body>
     <?php

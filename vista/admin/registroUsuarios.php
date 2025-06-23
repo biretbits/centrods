@@ -291,7 +291,8 @@ function insertardatosus(accion){
 		contentType: false, // Deshabilitar la codificación de tipo MIME
 		processData: false, // Deshabilitar la codificación de datos
 		success: function(data) {
-			//alert(data+"dasdas");
+		//	alert(data+"dasdas");
+			console.log(data);
 			data=$.trim(data);
 			if(data == "correcto"){
 

@@ -12,22 +12,19 @@ header('Content-Disposition: inline; filename="reporte.pdf"');
 
   include("../librerias/globales.php");
  //echo $fechai."fi   ".$fechaf."ff   ".$buscar."b   ".$pagina."p   ".$listarDeCuanto."ldc" ; ?>
-<style media="screen">
-.image {
-    width: 105%;
-    height: 95%;
-  }
-  .image-container {
-    text-align: center;
-  }
-</style>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title>Report Box</title>
     <style media="screen">
-
+    .image {
+        width: 105%;
+        height: 95%;
+      }
+      .image-container {
+        text-align: center;
+      }
     </style>
   </head>
   <body>
